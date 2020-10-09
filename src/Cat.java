@@ -1,4 +1,7 @@
+import java.util.Scanner;
+
 public class Cat extends Animals {
+    Scanner scanner = new Scanner(System.in);
     @Override
     public void run(int lengthRun) {
         if (lengthRun<=200) {
@@ -20,5 +23,19 @@ public class Cat extends Animals {
     @Override
     public void swim(int lengthSwim) {
         System.out.println("Кот не может плавать.");
+    }
+
+    public void eat(){
+        System.out.println("Коты проголодались, насыпь корма в тарелку! ");
+        Plate plate = new Plate(scanner.nextInt());
+        System.out.println("Сколько покормить котов? ");
+        int numberCats = scanner.nextInt();
+        for (int i = 0; i <numberCats ; i++) {
+            plate.decreaseFood(28,i+1);
+            plate.info();
+
+        }
+
+
     }
 }
