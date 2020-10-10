@@ -1,19 +1,21 @@
-import java.util.Random;
-import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        Dog dog = new Dog();
-        dog.run(500);
-        dog.jump(0.4F);
-        dog.swim(9);
+        Cat[] cats = {new Cat("Барсик"),new Cat("Томас"),new Cat("Мурзик")};
+        Plate plate = new Plate(40);
 
-        Cat cat = new Cat();
-        cat.jump(2);
-        cat.run(20);
-        cat.eat();
+        for (Cat n : cats){
+            n.eat(plate);
+            n.info();
+        }
+
+        plate.info();
+
+
+
+
 
 
 

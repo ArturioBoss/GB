@@ -1,41 +1,24 @@
-import java.util.Scanner;
 
-public class Cat extends Animals {
-    Scanner scanner = new Scanner(System.in);
-    @Override
-    public void run(int lengthRun) {
-        if (lengthRun<=200) {
-            System.out.println("Кот пробежал " + lengthRun + " метров");
+public class Cat {
+    public Cat(String name) {
+        this.name = name;
+    }
+
+    private String name;
+    private boolean satiety;
+
+    public void eat(Plate plate){
+        if (plate.decreaseFood(15)){
+            System.out.println("Кот "+name+" поел");
+            satiety = true;
+
         }else {
-            System.out.println("Кот не добежал");
+            System.out.println("Коту "+name+"у, не хватило еды");
         }
     }
 
-    @Override
-    public void jump(float heightJump) {
-        if (heightJump<=2) {
-            System.out.println("Кот прыгнул на " + heightJump + " метра");
-        }else {
-            System.out.println("Кот не допрыгнул");
-        }
+    public void info() {
+        System.out.println("Сытость кота "+name+"а = "+satiety);
     }
 
-    @Override
-    public void swim(int lengthSwim) {
-        System.out.println("Кот не может плавать.");
-    }
-
-    public void eat(){
-        System.out.println("Коты проголодались, насыпь корма в тарелку! ");
-        Plate plate = new Plate(scanner.nextInt());
-        System.out.println("Сколько покормить котов? ");
-        int numberCats = scanner.nextInt();
-        for (int i = 0; i <numberCats ; i++) {
-            plate.decreaseFood(28,i+1);
-            plate.info();
-
-        }
-
-
-    }
 }
